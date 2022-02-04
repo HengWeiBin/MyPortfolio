@@ -25,7 +25,10 @@ async function PrintWorks() {
     let works = "";
     let data = await readJson("json/portfolio.json");
 
-    for (let i = 0; i < data.length; i++) {
+    //sort date according to date
+    data.sort((a, b) => Date.parse(a.date_end) > Date.parse(b.date_end) ? -1 : 1);
+
+    for (let i = 0; i < data.length - 1; i++) {
         let work, link = "";
 
         if (data[i].link != "#") {
@@ -34,10 +37,10 @@ async function PrintWorks() {
 
         if (deviceWidth < 768) {
             work = `<div id="work${i}" class="container align-items-center card default-gradient">
-                        <div class="row wow bounceInLeft">
+                        <div class="row">
                             <img class="work_pic" src="${data[i].image_dir}">
                         </div>
-                        <div class="row justify-content-center wow bounceInRight">
+                        <div class="row justify-content-center">
                             <h1 class="title">${data[i].title}</h1>
                             <p class="description">${data[i].description}</p>
                             ${link}
@@ -72,20 +75,20 @@ async function PrintCertificates() {
     //sort date according to date
     data.sort((a, b) => Date.parse(a.date) > Date.parse(b.date) ? -1 : 1);
 
-    for (let i = 0; i < data.length; i++) {
+    for (let i = 0; i < data.length - 1; i++) {
         let work;
         if (deviceWidth < 768) {
-            work = `<div class="wow slideInUp">
+            work = `<div>
                         <img class="d-block w-100" src="${data[i].image_dir}" alt="${data[i].title}">
-                        <h1 class="title_cake">${data[i].title}</h1>
+                        <h1 class="title_certificate">${data[i].title}</h1>
                         <hr>
                         <p class="item_description">${data[i].date}</p>
                     </div>
                     `
         } else {
-            work = `<div class="wow slideInUp">
-                        <img class="d-block w-100" src="${data[i].image_dir}" alt="${data[i].title}">
-                        <h1 class="title_cake">${data[i].title}</h1>
+            work = `<div id="certificate" class="wow slideInUp">
+                        <img class="d-block w-100 hover_scale" src="${data[i].image_dir}" alt="${data[i].title}">
+                        <h1 class="title_certificate">${data[i].title}</h1>
                         <hr>
                         <p class="item_description">${data[i].date}</p>
                     </div>

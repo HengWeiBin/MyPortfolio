@@ -14,7 +14,7 @@
     font-family: 'Noto Sans TC', 'Microsoft Yahei', sans-serif;
 }
 
-#poster_title, .title, .title_cake, .contact .title, .title_coffee, .title_campaign, .profile_area p
+#poster_title, .title, .title_certificate, .contact .title, .title_coffee, .title_campaign, .profile_area p
 {
     font-family: 'Playfair Display', 'Times New Roman', serif;
 }
@@ -110,7 +110,6 @@ a:hover, .table_foot_section ul li a:hover,
 
 .profile{
     margin: 110px auto 10% auto;
-    padding-bottom: 20px;
     width: 300px;
     height: 80vh;
     overflow-y: scroll;
@@ -145,8 +144,14 @@ a:hover, .table_foot_section ul li a:hover,
     width: 100%;
 }
 
+.hover_scale {
+    transform: scale(1);
+    transition: transform 500ms;
+}
+
 .hover_scale:hover{
-    transform: scale(1.2);
+    transform: scale(1.5);
+    transition: transform 500ms;
 }
 
 .foot-bg{
@@ -223,6 +228,10 @@ footer p{
         padding-bottom: 20px;
         width: 700px;
         height: 75vh;
+    }
+
+    .profile img {
+        margin: auto;
     }
 
     .profile_detail{

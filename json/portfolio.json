@@ -3,42 +3,56 @@
         "title": "OOP Project - Candy Cruch Saga",
         "image_dir": "img/portfolio/candycrush.jpg",
         "description": "&emsp;全球類似於寶石方塊的游戲可説是相當的多，但糖果傳奇(Candy Crush Saga) 這款游戲有種神奇的魔力，他用鮮艷的顔色、精緻的特效，剛推出一個月就吸引了超過一千萬名用戶下載。<br>&emsp;考慮到我們兩位組員的生活情況，平時比較少時間接觸故事性、RPG或者是玩法複雜需要很多時間來玩的游戲。這款游戲比起很多流行的小游戲，這款游戲基本玩法的演算相較簡單，實作出來所需的時間較爲彈性，可以根據我們擁有的時間來決定擴充多少種游戲玩法和特效。",
-        "link": "https://github.com/HengWeiBin/HengWeiBin-oopProject2020"
+        "link": "https://github.com/HengWeiBin/HengWeiBin-oopProject2020",
+        "date_start": "2020-02-01",
+        "date_end": "2020-06-01"
     },
     {
         "title": "HTML Project - Kewa Cafe Website",
         "image_dir": "img/portfolio/kewa.jpg",
         "description": "現今社會，人們的生活節奏很快。每時每刻，人們都在被工作，學業功課，和 周圍不間斷更新的事物所追趕。無法慢下腳步，放鬆身心。<br><br>&emsp;“日常生活中，一個人們可以休息片刻，提供悠閒安靜環境的地方有什麼呢？”<br><br>&emsp;我們想到了“咖啡館”，一個有地道好喝的咖啡搭配好吃的糕點，在溫馨安靜的環境中，適合看書，聽音樂，三五好友 一起坐下來聚會聊天，有情調又小資的地方。<br><br>&emsp;主要負責依照設計圖處理網頁中的排版，完成RWD網頁，加入動態表現使得網頁更加生動。",
-        "link": "https://github.com/HengWeiBin/HTML-Project-108-2"
+        "link": "https://github.com/HengWeiBin/HTML-Project-108-2",
+        "date_start": "2020-04-01",
+        "date_end": "2020-07-01"
     },
     {
         "title": "Database Project - Stella Boutique",
         "image_dir": "img/portfolio/StellaBoutique.jpg",
         "description": "此系統能讓使用者在網路上訂購貨品，節省實體店面之花費以及庫存之問題．並且透過網頁設計提升商品質感，增加客人停留與購買之意願，進而增加訂單量以及銷貨利潤。<br><br>資料庫在近年來已成為應用軟體不可或缺的一部分，各種網路平台都有它的蹤跡。這次的Project使用MySQL作為DBMS，使用他所提供之規格實作資料庫之應用。網站除了功能和效能之外，使用者體驗（UX）也相當重要，所以這次我們打算使用React來製作前端，使用Spring Boot來實作後端之功能。透過這兩者之結合完成一個完整的系統。",
-        "link": "https://github.com/HengWeiBin/DatabaseProject"
+        "link": "https://github.com/HengWeiBin/DatabaseProject",
+        "date_start": "2020-09-01",
+        "date_end": "2021-01-01"
     },
     {
         "title": "機器學習專案-HOG車輛辨識模型",
         "image_dir": "img/portfolio/hog_MLproject.jpg",
         "description": "方向梯度直方圖(HOG)為Dalad和Triggs在2005的CVPR上提出的一種在電腦視覺和影像處理中用來進行物體檢測的特徵描述子。<br><br>此專案為淺層監督式機器學習，主要結合HOG+SVM 來實作運行步驟：<br>1）通過Sliding window掃描畫面<br>2）將被預測為“車輛”的部分加權在熱圖上<br>3）熱圖處理：<br>&emsp;i）為防止每個畫格的解析結果差異過大，每張畫格都會以8：2比例參照上一張畫格的權重<br>&emsp;ii）侵蝕 -> 二值化 -> 框出熱點<br>4）為提升精準度，對框出的畫面二次偵測，若預測為真，將爲下一張畫格而外加權<br><br>這項專案遇到最大的困難是效能問題，爲了提升效能，使用了以下幾種方法：<br>1）捨棄Pyramid（畫面縮放）以減少偵測量<br>2）調整Sliding Window Step Size，同時避開非重要部分<br>3）Multithread 提升整體速度約3倍",
-        "link": "#"
+        "link": "#",
+        "date_start": "2021-04-01",
+        "date_end": "2021-04-01"
     },
     {
         "title": "NLP機器學習-文章產生器",
         "image_dir": "img/portfolio/bullshit.jpg",
         "description": "此專案為自然人語言機器學習專案（NLP），目的是爲了減少學生在寫心得報告上所花費的時間。<br><br>技術、框架：python, Tensorflow, transformer, google-trans<br><br>訓練資料集：<br>約15000篇Dcard文章<br>185000篇維基百科文章<br>100000篇新聞<br>500000個百科問答<br>250000個社會問答<br>單單訓練模型總共花了260個小時，用了14天14夜才將模型的部分完成<br><br>參數量：124M<br><br>我們擁有的資料集大約有15GB但實際投入訓練的僅有10%左右，雖然我已經使用了Colab Pro來訓練本項專案的模型，但硬體資源還不足以在短時間内將模型訓練得更完美。",
-        "link": "https://colab.research.google.com/drive/1A34QC1uOeIDd4LF11OahWErO9kqymeH7?usp=sharing"
+        "link": "https://colab.research.google.com/drive/1A34QC1uOeIDd4LF11OahWErO9kqymeH7?usp=sharing",
+        "date_start": "2021-05-01",
+        "date_end": "2021-06-01"
     },
     {
         "title": "YOLOv4-物件辨識",
         "image_dir": "img/portfolio/yolo.jpg",
         "description": "此專案為深度捲積神經網絡機器學習模型（CNN），為以汽車的視角辨識道路上或周圍的物件，8種物件類別為：汽車、卡車、貨車、輕軌列車、行人（站）、行人（坐）、脚踏車騎士、雜項。<br><br>此模型使用遷移式學習，利用Pretrained Model（YOLOv4 137）作爲基底，訓練成爲本專案所需的分類器。<br><br>本專案利用Google Colab Pro搭配最好的GPU（Tesla v100）訓練了約28小時，最終的精準度可以達到99%（IOU>0.5），平均IOU也高達0.88。<br><br>瞭解更多細節分析可以前往Youtube鏈接。",
-        "link": "https://youtu.be/12JAGxuG0Hg"
+        "link": "https://youtu.be/12JAGxuG0Hg",
+        "date_start": "2021-05-01",
+        "date_end": "2021-06-01"
     },
     {
         "title": "null",
         "image_dir": "img/portfolio/",
         "description": "null",
-        "link": "#"
+        "link": "#",
+        "date_start": "#",
+        "date_end": "#"
     }
 ]

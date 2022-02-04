@@ -2,7 +2,7 @@
     box-sizing: inherit;
 }
 
-.title_cake{
+.title_certificate{
     margin-top: 10px;
     font-size: 20pt;
     color: #8F6500;
@@ -13,42 +13,6 @@
     font-size: 8pt;
     color: gray;
     font-style: italic;
-}
-
-.item_pic{
-    width: 220px;
-    height: 180px;
-    z-index: 99;
-    position: relative;
-}
-
-.item_pic2{
-    width: 220px;
-    height: 180px;
-    z-index: 5;
-    position: absolute;
-}
-
-.pastry_main    {background-image: url(../img/pastry_main.png);}
-
-.cheese_cake    {background-image: url(../img/pastry_1.png);}
-.chocolate_cake {background-image: url(../img/pastry_2.png);}
-.orange_pie     {background-image: url(../img/pastry_3.png);}
-.cinnamon_roll  {background-image: url(../img/pastry_4.png);}
-.macaron        {background-image: url(../img/pastry_5.png);}
-.pancake        {background-image: url(../img/pastry_6.png);}
-
-.cheese_cake2   {background-image: url(../img/pastry_1-1.png);}
-.chocolate_cake2{background-image: url(../img/pastry_2-1.png);}
-.orange_pie2    {background-image: url(../img/pastry_3-1.png);}
-.cinnamon_roll2 {background-image: url(../img/pastry_4-1.png);}
-.macaron2       {background-image: url(../img/pastry_5-1.png);}
-.pancake2       {background-image: url(../img/pastry_6-1.png);}
-
-.pic_pastry_end {
-    height: 180px;
-    background-image: url(../img/pastry_end.png);
-    background-position: center;
 }
 
 hr{
