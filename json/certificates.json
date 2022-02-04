@@ -1,0 +1,27 @@
+[
+    {
+        "title": "專題競賽佳作獎",
+        "image_dir": "img/certificates/專題競賽獎狀.jpg",
+        "date":"2021-10-28"
+    },
+    {
+        "title": "機器學習百日馬拉松完賽證明",
+        "image_dir": "img/certificates/機器學習百日馬拉松完賽證明.jpg",
+        "date":"2020-09-14"
+    },
+    {
+        "title": "無人機都市街谷工作坊證書1",
+        "image_dir": "img/certificates/跨領域工作坊證書.jpg",
+        "date":"2021-10-31"
+    },
+    {
+        "title": "無人機都市街谷工作坊證書2",
+        "image_dir": "img/certificates/跨領域工作坊證書2.jpg",
+        "date":"2022-01-09"
+    },
+    {
+        "title": "null",
+        "image_dir": "img/certificates/",
+        "date":"#"
+    }
+]

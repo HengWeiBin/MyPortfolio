@@ -2,12 +2,6 @@
     box-sizing: inherit;
 }
 
-#pastry_link a{
-    opacity: 50%;
-    border-bottom: white 1px dashed;
-    border-top: white 1px dashed;
-}
-
 .title_cake{
     margin-top: 10px;
     font-size: 20pt;

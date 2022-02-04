@@ -1,17 +1,15 @@
 "use strict";
 let deviceWidth = document.documentElement.clientWidth;
+let deviceHeight = document.documentElement.clientHeight;
 
 $(document).ready(main);
 
 //handle activity when browser resize
 window.onresize = function () {
-    deviceWidth = document.documentElement.clientWidth; //update deviceWidth
+    deviceWidth = document.documentElement.clientWidth;
+    deviceHeight = document.documentElement.clientHeight;
     main();
 };
-window.addEventListener("scroll", NavbarButtonEffect);
-
-$("#portfolio_link").click("portfolio", NavbarButtonControl);
-$("#contact_link").click("contact", NavbarButtonControl);
 
 async function readJson(dir) {
     try {
@@ -67,46 +65,29 @@ async function PrintWorks() {
     $("#works_area").html(works);
 }
 
-function PrintCertificates() {
-    let titles = ["Shrimp Risotto", "Bolognese Pasta", "Kewa Salad"];
-    let subtitles = ["藍鑽蝦燴飯", "帕薩尼肉醬意大利麵", "Kewa沙拉"];
-    let images = ["prawn_rice", "spaghetti", "salad"]
+async function PrintCertificates() {
+    let data = await readJson("json/certificates.json");
     let works = "";
 
-    for (let i = 0; i < titles.length; i++) {
+    //sort date according to date
+    data.sort((a, b) => Date.parse(a.date) > Date.parse(b.date) ? -1 : 1);
+
+    for (let i = 0; i < data.length; i++) {
         let work;
         if (deviceWidth < 768) {
-            work = `<div class="item wow slideInUp">
-                        <div id="cheese_cake" class="carousel slide carousel-fade" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img class="d-block w-100" src="./img/pastry_1.png" alt="First slide">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="./img/pastry_1-1.png" alt="Second slide">
-                                </div>
-                            </div>
-                        </div>
-                        <h1 class="title_cake">Cheese Cake</h1>
+            work = `<div class="wow slideInUp">
+                        <img class="d-block w-100" src="${data[i].image_dir}" alt="${data[i].title}">
+                        <h1 class="title_cake">${data[i].title}</h1>
                         <hr>
-                        <p class="item_description">(餅乾/奶油/乳酪/糖/雞蛋)</p>
+                        <p class="item_description">${data[i].date}</p>
                     </div>
                     `
         } else {
-            work = `<div class="item wow slideInUp">
-                        <div id="cheese_cake" class="carousel slide carousel-fade" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img class="d-block w-100" src="./img/pastry_1.png" alt="First slide">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="./img/pastry_1-1.png" alt="Second slide">
-                                </div>
-                            </div>
-                        </div>
-                        <h1 class="title_cake">Cheese Cake</h1>
+            work = `<div class="wow slideInUp">
+                        <img class="d-block w-100" src="${data[i].image_dir}" alt="${data[i].title}">
+                        <h1 class="title_cake">${data[i].title}</h1>
                         <hr>
-                        <p class="item_description">(餅乾/奶油/乳酪/糖/雞蛋)</p>
+                        <p class="item_description">${data[i].date}</p>
                     </div>
                     `
         }
@@ -151,10 +132,10 @@ function NavbarButtonControl(event) {
     else if (event.data == "contact") destination = "foot_logo";
 
     //Redirect to home page if this link is clicked at another page
-    if (event.data != "contact" && (location.pathname.endsWith("/index.html") || location.pathname.endsWith("/"))) {
+    if (event.data != "contact" && !(location.pathname.endsWith("/index.html") || location.pathname.endsWith("/"))) {
         window.location.href = `index.html#${destination}`;
     }
-    //else scroll to Portfolio section
+    //else scroll to destination
     $('html, body').animate({
         scrollTop: $(`#${destination}`).offset().top - 85
     }, 500);
@@ -174,32 +155,22 @@ function NavbarButtonEffect(event) {
         }
     }
     // Show "clicked(聯絡方式)" on navbar when user reached bottom
-    try {
-        if (this.scrollY >= document.documentElement.scrollHeight - document.documentElement.clientHeight - 1) {
-            $("#contact_link").addClass("nav_clicked");
-        } else {
-            $("#contact_link").removeClass("nav_clicked");
-        }
-    } catch (e) {
-        if (e instanceof TypeError) {
-            $("#contact_link").addClass("nav_clicked");
-        }
+    if (event && this.scrollY >= document.documentElement.scrollHeight - deviceHeight - 1) {
+        $("#contact_link").addClass("nav_clicked");
+    } else {
+        $("#contact_link").removeClass("nav_clicked");
     }
 }
 
-function main() {
-    if (location.pathname.endsWith("/index.html") || location.pathname.endsWith("/")) PrintWorks();
-    PrintCertificates();
-    NavbarButtonEffect();
-    new WOW().init();
-
-    //Country Code 顯示
+function showCountryCode() {
     $.get("https://ipinfo.io", function (response) {
         console.log(response.city, response.country);
         $(".location p").html(response.country);
     },
         "jsonp");
+}
 
+function initListener() {
     //hamburger button animation
     $('.first-button').on('click', function () {
 
@@ -214,5 +185,39 @@ function main() {
         $('.animated-icon3').toggleClass('open');
     });
 
+    //scroll listener
+    window.addEventListener("scroll", NavbarButtonEffect);
+
+    //navbar button listener
+    $("#portfolio_link").click("portfolio", NavbarButtonControl);
+    $("#contact_link").click("contact", NavbarButtonControl);
+}
+
+function checkHashTag() {
+    //go to specific id if herf contain hashtag
+    if (location.hash != "") {
+        $('html, body').animate({
+            scrollTop: $(location.hash).offset().top - 85
+        }, 500);
+    }
+}
+
+async function main() {
+    if (location.pathname.endsWith("/index.html") || location.pathname.endsWith("/")) {
+        await PrintWorks();
+    }else if (location.pathname.endsWith("/certificate.html")) {
+        await PrintCertificates();
+    }
+
+    NavbarButtonEffect();
+
+    new WOW().init();
+
+    showCountryCode();
+
+    initListener();
+
     DrawFooterLine();
+
+    checkHashTag();
 }

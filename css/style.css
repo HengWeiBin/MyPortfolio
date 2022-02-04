@@ -100,8 +100,12 @@ a:hover, .table_foot_section ul li a:hover,
     transition: opacity 1000ms 0ms;;
 }
 
-#offset{
+.offset100vh{
     padding-top: 100vh;
+}
+
+.offset50px {
+    padding-top: 50px;
 }
 
 .profile{
