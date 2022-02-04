@@ -90,6 +90,14 @@ a:hover, .table_foot_section ul li a:hover,
 .profile_area{
     position: fixed;
     width: 100%;
+    background-color: #fae5c9;
+    opacity: 1;
+    transition: opacity 1000ms 0ms;;
+}
+
+.d-fadeout{
+    opacity: 0;
+    transition: opacity 1000ms 0ms;;
 }
 
 #offset{
@@ -103,7 +111,7 @@ a:hover, .table_foot_section ul li a:hover,
     height: 80vh;
     overflow-y: scroll;
     background-color: #f5d2a5;
-    border: outset 5px;
+    box-shadow: -10px 10px 15px gray;
 }
 
 .profile::-webkit-scrollbar{
@@ -279,7 +287,7 @@ footer p{
 
 @media (min-width: 1200px) {
     .card {
-        max-width: 45vw;
+        max-width: 1200px;
         margin: 10px auto;
     }
 }

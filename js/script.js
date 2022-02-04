@@ -151,7 +151,7 @@ function NavbarButtonControl(event) {
     else if (event.data == "contact") destination = "foot_logo";
 
     //Redirect to home page if this link is clicked at another page
-    if (event.data != "contact" && !/index.html/.test(window.location.href)) {
+    if (event.data != "contact" && (location.pathname.endsWith("/index.html") || location.pathname.endsWith("/"))) {
         window.location.href = `index.html#${destination}`;
     }
     //else scroll to Portfolio section
@@ -164,12 +164,12 @@ function NavbarButtonEffect(event) {
     if (/certificate.html/.test(window.location.href)) {
         $("#certificate_link").addClass("nav_clicked")
 
-    } else if (/index.html/.test(window.location.href) && event) {
+    } else if ((location.pathname.endsWith("/index.html") || location.pathname.endsWith("/")) && event) {
         if (this.scrollY > $("#works_area").offset().top - 100) {
-            $(".profile_area").addClass("d-none");//hide profile area when scroll down
+            $(".profile_area").addClass("d-fadeout");//hide profile area when scroll down
             $("#portfolio_link").addClass("nav_clicked");// Show "clicked(作品集)" on navbar when user reached bottom
         } else {
-            $(".profile_area").removeClass("d-none");
+            $(".profile_area").removeClass("d-fadeout");
             $("#portfolio_link").removeClass("nav_clicked");
         }
     }
@@ -188,7 +188,7 @@ function NavbarButtonEffect(event) {
 }
 
 function main() {
-    if (/index.html/.test(window.location.href)) PrintWorks();
+    if (location.pathname.endsWith("/index.html") || location.pathname.endsWith("/")) PrintWorks();
     PrintCertificates();
     NavbarButtonEffect();
     new WOW().init();
