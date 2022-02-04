@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Kewa Café</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--font-->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <!--Normalize css-->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="css/mdb.min.css">
+    <!--custom styles-->
+    <link rel="stylesheet" href="css/contect_us.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="default-bg-color">
+    <nav class="container navbar navbar-expand-lg navbar-dark bg-transulent-dark fixed-top">
+
+        <!--漢堡選單-->
+        <button class="navbar-toggler third-button" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <div class="animated-icon3"><span></span><span></span><span></span></div>
+        </button>
+
+        <a class="navbar-brand" href="index.html"><img src="img/header_logo.png" alt="logo"></a>
+
+        <!--網頁選單-->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <!--top icon-->
+                        <div class="row justify-content-end navbar-nav nav-icon">
+                            <a href="#"><img src="img/icon_where.png" alt="location"></a>
+                            <div class="location">
+                                <p class="text-center"></p>
+                            </div>
+                            <a href="#"><img src="img/icon_help.png" alt="help"></a>
+                        </div>
+
+                        <!--導航選單-->
+                        <ul class="row justify-content-end navbar-nav ml-auto">
+                            <li id="coffee_link" class="nav-item"><a class="nav-link" href="coffee.html">咖啡</a></li>
+                            <li id="food_link" class="nav-item"><a class="nav-link" href="meal.html">輕食</a></li>
+                            <li id="pastry_link" class="nav-item"><a class="nav-link" href="pastry.html">糕點</a></li>
+                            <li id="campaign_link" class="nav-item"><a id="campaign_link" class="nav-link">活動專區</a></li>
+                            <li id="contact_link" class="nav-item"><a class="nav-link" href="contact_us.html">聯絡我們</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!--contact_us-->
+        <div class="contact default-gradient">
+            <div class="row default-gradient">
+                <div class="col-12">
+                    
+                    <!--first section-->
+                    <div class="row">
+                        <div class="container sub-pg-header contect_background">
+                            <div class="row justify-content-center align-items-end h-75">
+                                <h1 class="text-center">Contact Us</h1>
+                            </div>
+                            <div class="row justify-content-center align-items-center h-25">
+                                <p>聯絡我們</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!--form section-->
+                    <form class="form" id="contact_form">
+
+                        <!--person data-->
+                        <div>
+                            <!--name-->
+                            <label for="name">你的名字:</label>
+                            <input type="text" name="name" placeholder="ex: 巫OO" id="contact_name"><br>
+
+                            <!--email-->
+                            <label for="email">你的信箱:</label>
+                            <input type="text" name="email" placeholder="ex: example@yourmail.com" id="contact_email">
+
+                            <!--phone-->
+                            <label for="phone">聯絡電話:</label>
+                            <input type="text" name="phone" placeholder="ex: 097XXXXXX5" id="contact_phone">
+                        </div>
+
+                        <!--person suggestion-->
+                        <div>
+                            <label for="content">內容:</label>
+                            <textarea name="content" placeholder="你的建議" id="contact_message"></textarea>
+                        </div>
+
+                        <!--send-->
+                        <div class="text-center"><input type="submit" value="送出"></div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        
+        <div class="row pic_meal_end"></div>
+        
+        <!--fifth section-->
+        <div class="row foot-bg align-items-center">
+            <div class="col-md-3">
+                <div class="row justify-content-center">
+                    <img src="img/footer_logo.png">
+                </div>
+            </div>
+            <canvas id="line"></canvas>
+
+            <div class="col-md-9 table_foot_section">
+                <div class="row">
+                    <ul class="col-4 col-md-3">
+                        <h2>認識我們</h2>
+                        <li><a href="#">關於 Kewa cafe</a></li>
+                        <li><a href="#">門店公告</a></li>
+                        <li><a href="#">安全採購</a></li>
+                    </ul>
+
+                    <ul class="col-4 col-md-3">
+                        <h2>招募夥伴</h2>
+                        <li><a href="#">成為我們的夥伴</a></li>
+                        <li><a href="#">優待福利</a></li>
+                        <li><a href="#">專業學習與職業晉升</a></li>
+                    </ul>
+
+                    <ul class="col-4 col-md-3">
+                        <h2>顧客關懷</h2>
+                        <li class="contact_link"><a href="contact_us.html">聯絡我們</a></li>
+                    </ul>
+
+                    <ul class="subscribe_us col-3">
+                        <h2>關注我們</h2>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Youtube</a></li>
+                        <li><a href="#">訂閱電子報</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <footer class="row align-items-center">
+
+            <!--bottom icon-->
+            <div class="col foot_button">
+                <a href="#"><img src="img/icon_facebook.png"></a>
+                <a href="#"><img src="img/icon_twitter.png"></a>
+                <a href="#"><img src="img/icon_youtube.png"></a>
+                <a href="#"><img src="img/icon_instagram.png"></a>
+            </div>
+
+            <div class="col-md-auto"></div>
+
+            <!--copyright-->
+            <p class="col-md-2">
+                Copyright 2020. All rights reserved.
+            </p>
+        </footer>
+    </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-database.js"></script>
+    <!-- jQuery -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!--WOW.js-->
+    <script type="text/javascript" src="js/wow.min.js"></script>
+    <!-- My JavaScript -->
+    <script type="text/javascript" src="js/script.js"></script>
+    <!--Firebase JavaScript-->
+    <script type="text/javascript" src="js/firebase.js"></script>
+
+
+</body>
+
+</html>

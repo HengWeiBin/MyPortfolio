@@ -1,0 +1,88 @@
+.contect_background{background-image: url(../img/contact_main.png);}
+
+#contact_link a, .contact_link a{
+    opacity: 50%;
+    border-bottom: white 1px dashed;
+    border-top: white 1px dashed;
+}
+
+.contact {
+	height:750px;
+    margin-bottom: 180px;
+}
+
+.contact .title {
+	color:#ffffff;
+}
+
+.contact .form {
+	max-width: 600px;
+	margin:25px auto;
+	padding: 0 30px;
+	color:#ffffff;
+}
+
+.form label{
+	margin-bottom: 5px;
+	color: black;
+}
+
+.form input {
+	height: 40px;
+	width: 100%;
+	background-color:gray;
+	border-radius: 5px;
+	border:0px;
+	border-width: 5px;
+	border-color: black;
+	padding: 10px;
+	resize: vertical;
+	color: #000000;
+    margin:7.5px 0;
+    margin-bottom: 25px;
+}
+
+.form input::placeholder{
+	color:white;
+	opacity: 50%;
+}
+
+.form input:focus{
+	color:white;
+}
+
+.form textarea {
+	height: 200px;
+	width: 100%;
+	background-color:gray;
+	border-color: black;
+	border-radius: 5px;
+	border:0px;
+	border-width: 5px;
+	padding: 10px;
+	resize: vertical;
+	color: #000000;
+	margin:10px 0;
+}
+
+.form textarea::placeholder{
+	color:white;
+	opacity: 50%;
+}
+
+.form textarea:focus{
+	color:white
+}
+
+input[type=submit] {
+  background-color:gray;
+  color:white;
+  cursor: pointer;
+  width: 100px!important;
+  height: 48px;
+}
+
+input[type=submit]:hover {
+  background-color:#8f6500;
+}
+

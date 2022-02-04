@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>王偉斌</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--font-->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <!--Normalize css-->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="css/mdb.min.css">
+    <!--custom styles-->
+    <link rel="stylesheet" href="css/campaign.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="default-bg-color">
+    <nav class="container navbar navbar-expand-lg navbar-dark bg-transulent-dark fixed-top">
+
+        <!--漢堡選單-->
+        <button class="navbar-toggler third-button" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <div class="animated-icon3"><span></span><span></span><span></span></div>
+        </button>
+
+        <a class="navbar-brand" href="index.html"><img src="img/nav_logo.png" alt="logo"></a>
+
+        <!--網頁選單-->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <!--top icon-->
+                        <div class="row justify-content-end navbar-nav nav-icon">
+                            <a href="#"><img src="img/icon_where.png" alt="location"></a>
+                            <div class="location">
+                                <p class="text-center"></p>
+                            </div>
+                            <a href="#"><img src="img/icon_help.png" alt="help"></a>
+                        </div>
+
+                        <!--導航選單-->
+                        <ul class="row justify-content-end navbar-nav ml-auto">
+                            <li class="nav-item"><a id="portfolio_link" class="nav-link">作品集</a></li>
+                            <li class="nav-item"><a id="certificate_link" class="nav-link" href="certificate.html">證書</a></li>
+                            <li class="nav-item"><a id="contact_link" class="nav-link">聯絡方式</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container default-gradient">
+        <!--first section-->
+        <div class="row profile_area">
+            <div class="container row profile">
+                <img class="col-md-5 col-8 col-lg-4" src="img/portrait.jpg">
+                <div class="col-sm-12 col-md-6 col-lg-7 align-items-center profile_detail">
+                    <h1 class="row justify-content-center title">王偉斌</h1>
+                    <p class="row justify-content-center subtitle">國立臺北科技大學 資訊工程系</p>
+                    <div class="row profile_button justify-content-center">
+                        <a class="hover_scale" href="https://www.facebook.com/weibin1898/"><img
+                                src="img/icon_facebook.png"></a>
+                        <a class="hover_scale" href="https://github.com/HengWeiBin"><img src="img/icon_github.png"></a>
+                        <a class="hover_scale" href="104.pdf" target="_blank"><img src="img/icon_104.png"></a>
+                        <a class="hover_scale" href="https://www.instagram.com/wei_bin/"><img
+                                src="img/icon_instagram.png"></a>
+                    </div>
+                    <p class="description">
+                        &emsp;我來自馬來西亞柔佛州，出生於一個平凡的小康之家。自我多年前赴臺留學之後，妹妹中學畢業選擇出國留學，也因爲一場疫情，家人們都分散在世界各地。因爲疫情影響，各國紛紛限制出入境，爸爸直接搬到了新加披工作賺錢。身爲長子的我，爲了不增加家人的負擔，中學畢業後一向獨立自主，靠自己的力量留學台灣，堅定的意念讓我剋服了很多挑戰，在養活自己的同時成功的從餐飲管理科轉換到資訊工程這條跑道。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="offset" class="row"></div>
+        <div id="works_area" class="row"></div>
+
+        <div class="row foot-bg align-items-center">
+            <div class="col-md-3">
+                <div class="row justify-content-center">
+                    <img id="foot_logo" src="img/nav_logo.png">
+                </div>
+            </div>
+            <canvas id="line"></canvas>
+
+            <div class="col-md-9 table_foot_section">
+                <div class="row">
+                    <div class="col-6 row">
+                        <h2 class="col-md-6">認識我</h2>
+                        <ul class="col-md-6">
+                            <li><a href="https://www.facebook.com/weibin1898/">Facebook</a></li>
+                            <li><a href="https://www.instagram.com/wei_bin/">Instagram</a></li>
+                            <li><a href="https://github.com/HengWeiBin">Github</a></li>
+                            <li><a href="104.pdf" target="_blank">104 履歷</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 row align-items-center">
+                        <h2 class="col-md-6">聯係我</h2>
+                        <ul class="col-md-6">
+                            <li><a href="mailto:wbsc1898@hotmail.com">wbsc1898@hotmail.com</a></li>
+                            <li><a href="#">(+886)0916180245</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+
+        <!--copyright-->
+        <p class="col-4 col-md-3">
+            Copyright 2022. All rights reserved.
+        </p>
+
+    </footer>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!--WOW.js-->
+    <script type="text/javascript" src="js/wow.min.js"></script>
+    <!-- My JavaScript -->
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+
+</html>
