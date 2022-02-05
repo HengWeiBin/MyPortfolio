@@ -8,6 +8,12 @@
     <title>王偉斌</title>
     <link rel="icon" href="img/favicon.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property='og:title' content='王偉斌-作品集'/>
+    <meta property='og:image' content='img/websiteThumbnail.jpg'/>
+    <meta property='og:description' content='該上班上班，該睡覺睡覺'/>
+    <meta property='og:url' content='URL OF YOUR WEBSITE'/>
+    <meta property='og:image:width' content='1200' />
+    <meta property='og:image:height' content='627' />
 
     <!--font-->
     <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Noto+Sans+TC&display=swap" rel="stylesheet">
@@ -45,13 +51,13 @@
                             <div class="location">
                                 <p class="text-center"></p>
                             </div>
-                            <a href="#"><img src="img/icon_help.png" alt="help"></a>
                         </div>
 
                         <!--導航選單-->
                         <ul class="row justify-content-end navbar-nav ml-auto">
                             <li class="nav-item"><a id="portfolio_link" class="nav-link">作品集</a></li>
-                            <li class="nav-item"><a id="certificate_link" class="nav-link" href="certificate.html">證書</a></li>
+                            <li class="nav-item"><a id="certificate_link" class="nav-link"
+                                    href="certificate.html">證書</a></li>
                             <li class="nav-item"><a id="contact_link" class="nav-link">聯絡方式</a></li>
                         </ul>
                     </div>
@@ -59,6 +65,8 @@
             </div>
         </div>
     </nav>
+
+    <button id="goTopBtn" class="d-none" title="Go to top">Top</button>
 
     <div class="container default-gradient">
         <div class="row profile_area">
@@ -68,15 +76,16 @@
                     <h1 class="row justify-content-center title">王偉斌</h1>
                     <p class="row justify-content-center subtitle">國立臺北科技大學 資訊工程系</p>
                     <div class="row profile_button justify-content-center">
-                        <a class="hover_scale" href="https://www.facebook.com/weibin1898/"><img
+                        <a title="Facebook" class="hover_scale" href="https://www.facebook.com/weibin1898/"><img
                                 src="img/icon_facebook.png"></a>
-                        <a class="hover_scale" href="https://github.com/HengWeiBin"><img src="img/icon_github.png"></a>
-                        <a class="hover_scale" href="104.pdf" target="_blank"><img src="img/icon_104.png"></a>
-                        <a class="hover_scale" href="https://www.instagram.com/wei_bin/"><img
+                        <a title="Github" class="hover_scale" href="https://github.com/HengWeiBin"><img src="img/icon_github.png"></a>
+                        <a title="Leetcode" class="hover_scale" href="https://leetcode.com/hengweibin1898/"><img src="img/icon_leetcode.png"></a>
+                        <a title="104履歷" class="hover_scale" href="104.pdf" target="_blank"><img src="img/icon_104.png"></a>
+                        <a title="Instagram" class="hover_scale" href="https://www.instagram.com/wei_bin/"><img
                                 src="img/icon_instagram.png"></a>
                     </div>
-                    <p class="description">
-                        &emsp;我來自馬來西亞柔佛州，出生於一個平凡的小康之家。自我多年前赴臺留學之後，妹妹中學畢業選擇出國留學，也因爲一場疫情，家人們都分散在世界各地。因爲疫情影響，各國紛紛限制出入境，爸爸直接搬到了新加披工作賺錢。身爲長子的我，爲了不增加家人的負擔，中學畢業後一向獨立自主，靠自己的力量留學台灣，堅定的意念讓我剋服了很多挑戰，在養活自己的同時成功的從餐飲管理科轉換到資訊工程這條跑道。
+                    <p id="profile_desc" class="description">
+                        
                     </p>
                 </div>
             </div>

@@ -35,7 +35,7 @@ async function PrintWorks() {
             link = `<a class="description" href="${data[i].link}" target="_blank">前往查看 ></a>`;
         }
 
-        if (deviceWidth < 768) {
+        if (deviceWidth < 768) { //手機界面
             work = `<div id="work${i}" class="container align-items-center card default-gradient">
                         <div class="row">
                             <img class="work_pic" src="${data[i].image_dir}">
@@ -52,6 +52,7 @@ async function PrintWorks() {
                         <div class="row align-items-start">
                             <div class="col-md-6 wow bounceInLeft">
                                 <img class="work_pic" src="${data[i].image_dir}">
+                                <p class="item_description">(${data[i].date_start}-${data[i].date_end})</p>
                             </div>
                             <div class="col-md-6 wow bounceInRight">
                                 <h1 class="title">${data[i].title}</h1>
@@ -151,9 +152,11 @@ function NavbarButtonEffect(event) {
     } else if ((location.pathname.endsWith("/index.html") || location.pathname.endsWith("/")) && event) {
         if (this.scrollY > $("#works_area").offset().top - 100) {
             $(".profile_area").addClass("d-fadeout");//hide profile area when scroll down
+            $("#goTopBtn").removeClass("d-none");
             $("#portfolio_link").addClass("nav_clicked");// Show "clicked(作品集)" on navbar when user reached bottom
         } else {
             $(".profile_area").removeClass("d-fadeout");
+            $("#goTopBtn").addClass("d-none");
             $("#portfolio_link").removeClass("nav_clicked");
         }
     }
@@ -194,6 +197,7 @@ function initListener() {
     //navbar button listener
     $("#portfolio_link").click("portfolio", NavbarButtonControl);
     $("#contact_link").click("contact", NavbarButtonControl);
+    $("#goTopBtn").click(function () { $('html, body').animate({ scrollTop: 0 }, 500); });
 }
 
 function checkHashTag() {
@@ -205,10 +209,22 @@ function checkHashTag() {
     }
 }
 
+function showProfileDescription() {
+    if (deviceWidth > 768) {
+        $("#profile_desc").html(`&emsp;我來自馬來西亞柔佛州，出生於一個平凡的小康之家。
+    自我多年前赴臺留學之後，妹妹中學畢業選擇出國留學，也因爲一場疫情，家人們都分散在世界各地。
+    因爲疫情影響，各國紛紛限制出入境，爸爸直接搬到了新加披工作賺錢。
+    身爲長子的我，爲了不增加家人的負擔，中學畢業後一向獨立自主，靠自己的力量留學台灣，
+    堅定的意念讓我剋服了很多挑戰，在養活自己的同時成功的從餐飲管理科轉換到資訊工程這條跑道。`);
+    } else {
+        $("#profile_desc").html(`該上班上班，該睡覺睡覺`);
+    }
+}
+
 async function main() {
     if (location.pathname.endsWith("/index.html") || location.pathname.endsWith("/")) {
         await PrintWorks();
-    }else if (location.pathname.endsWith("/certificate.html")) {
+    } else if (location.pathname.endsWith("/certificate.html")) {
         await PrintCertificates();
     }
 
@@ -217,6 +233,8 @@ async function main() {
     new WOW().init();
 
     showCountryCode();
+
+    showProfileDescription();
 
     initListener();
 

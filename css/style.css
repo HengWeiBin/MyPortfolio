@@ -218,6 +218,50 @@ footer p{
     position: relative;
 }
 
+#goTopBtn {
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: #8F6500; /* Set a background color */
+    color: white; /* Text color */
+    padding: 10px; /* Some padding */
+    border-radius: 50px; /* Rounded corners */
+    font-size: 15px; /* Increase font size */
+    opacity: 60%;
+}
+
+#goTopBtn:hover {
+    background-color: #555; /* Add a dark-grey background on hover */
+}
+
+.title_certificate{
+    margin-top: 10px;
+    font-size: 20pt;
+    color: #8F6500;
+    font-weight: bold;
+}
+
+.item_description{
+    font-size: 8pt;
+    color: gray;
+    font-style: italic;
+}
+
+hr{
+    border-color: #8f6500;
+    border-width: 1px;
+}
+
+.grid {
+    display: grid;
+    gap: 60px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin: 60px 90px;
+}
+
 @media (min-width: 768px){
     .subscribe_us{
         display: block;
