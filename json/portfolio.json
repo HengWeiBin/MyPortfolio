@@ -49,7 +49,7 @@
     },
     {
         "title": "Jetbot開發（Jetson Nano)",
-        "image_dir": "img/portfolio/jetbot.jpg",
+        "image_dir": "img/portfolio/Jetbot.jpg",
         "description": "Jetson Nano 開發套件是一部小而強大的電腦，可同時執行多個神經網路，適合應用於影像分類、物體偵測、分割和語音處理。<br><br>相關開發經驗：<br>1)<a href='https://youtu.be/-fbSL_2O8S0'>手柄遙控</a><br>2)<a href='https://youtu.be/k8N54P-Q1eM'>Resnet道路辨識</a><a href='https://youtu.be/2zPBWgPR0tU'>&emsp;[link2]</a><br>3)<a href='https://youtu.be/CsE7UcPmF4g'>直線自走</a><br>4)障礙物閃避<br>5)<a href='https://youtu.be/iPBfviURAYA'>路標辨識</a><br>6)<a href='https://youtu.be/h5gTWiYMuS8'>DQN强化式學習自走</a>",
         "link": "#",
         "date_start": "2021-09",
@@ -62,6 +62,14 @@
         "link": "https://youtu.be/1piOlIqWTyw",
         "date_start": "2022-01-08",
         "date_end": "2022-01-09"
+    },
+    {
+        "title": "Multi-Object Tracking by Yolov4+DeepSort",
+        "image_dir": "img/portfolio/mot.jpg",
+        "description": "&emsp;此次專案主要是在同一個影片上分不同等級進行單/多物件追蹤，我選擇利用機器學習的方式進行，Yolov4作爲detector，Deepsort作爲tracker。<br>&emsp;訓練Yolo的部分我選用了WiderPerson資料集中的8947張照片，它包含了很廣汎的場景路人資料如：比賽、交通、活動、舞蹈等。僅偵測一個類別。<br>&emsp;SORT是一款基於Kalman Filter的追蹤器，而DeepSORT解決了SORT追蹤物件在被遮擋後重新出現ID會重置的問題。",
+        "link": "https://youtu.be/k7XqmvXOu1s",
+        "date_start": "2022-01-13",
+        "date_end": "2022-01-20"
     },
     {
         "title": "null",

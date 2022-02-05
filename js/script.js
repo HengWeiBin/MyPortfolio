@@ -152,11 +152,9 @@ function NavbarButtonEffect(event) {
     } else if ((location.pathname.endsWith("/index.html") || location.pathname.endsWith("/")) && event) {
         if (this.scrollY > $("#works_area").offset().top - 100) {
             $(".profile_area").addClass("d-fadeout");//hide profile area when scroll down
-            $("#goTopBtn").removeClass("d-none");
             $("#portfolio_link").addClass("nav_clicked");// Show "clicked(作品集)" on navbar when user reached bottom
         } else {
             $(".profile_area").removeClass("d-fadeout");
-            $("#goTopBtn").addClass("d-none");
             $("#portfolio_link").removeClass("nav_clicked");
         }
     }
@@ -165,6 +163,13 @@ function NavbarButtonEffect(event) {
         $("#contact_link").addClass("nav_clicked");
     } else {
         $("#contact_link").removeClass("nav_clicked");
+    }
+
+    //show go top when user scroll down more than 500unit
+    if (event && this.scrollY > 500) {
+        $("#goTopBtn").removeClass("d-none");
+    } else {
+        $("#goTopBtn").addClass("d-none");
     }
 }
 
