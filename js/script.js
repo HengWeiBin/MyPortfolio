@@ -172,7 +172,7 @@ function NavbarButtonEffect(event) {
         }
     }
     // Show "clicked(聯絡方式)" on navbar when user reached bottom
-    if (event && this.scrollY >= document.documentElement.scrollHeight - deviceHeight - 1) {
+    if (event && this.scrollY >= document.documentElement.scrollHeight - deviceHeight - 50) {
         $("#contact_link").addClass("nav_clicked");
         
         if (allowedExtend) {
