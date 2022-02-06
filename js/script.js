@@ -152,7 +152,6 @@ function NavbarButtonControl(event) {
     $('html, body').animate({
         scrollTop: $(`#${destination}`).offset().top - 85
     }, 500);
-    setTimeout(()=> alert(window.pageYOffset), 1000);
     //disallow data extend for 1 second
     allowedExtend = false;
     setTimeout(() => allowedExtend = true, 1000);
@@ -350,8 +349,6 @@ function printFooter() {
 }
 
 async function main() {
-    setTimeout(() => alert(document.documentElement.scrollHeight - deviceHeight - 50), 1000);
-    
     printHead();
     printNavBar();
     printFooter();
