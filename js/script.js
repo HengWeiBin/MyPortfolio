@@ -27,7 +27,13 @@ async function printWorks(allowedHeight) {
     let works = "";
     let data = await readJson("json/portfolio.json");
     let ncol = Math.floor(allowedHeight / 200);
-    let ndata = Math.min(ncol, data.length - 1);
+
+    let ndata;
+    if (deviceWidth < 992) {
+        ndata = data.length - 1;
+    } else {
+        ndata = Math.min(ncol, data.length - 1);
+    }
 
     //sort date according to date
     data.sort((a, b) => Date.parse(a.date_end) > Date.parse(b.date_end) ? -1 : 1);
@@ -78,8 +84,14 @@ async function printCertificates(allowedHeight) {
     let works = "";
     let nrow = Math.floor((deviceWidth - 200) / 260 + 0.19);
     let ncol = Math.floor(allowedHeight / 300);
-    let ndata = nrow * ncol;
-    ndata = Math.min(ndata, data.length - 1);
+
+    let ndata;
+    if (deviceWidth < 992) {
+        ndata = data.length - 1;
+    } else {
+        ndata = nrow * ncol;
+        ndata = Math.min(ndata, data.length - 1);
+    }
 
     //sort date according to date
     data.sort((a, b) => Date.parse(a.date) > Date.parse(b.date) ? -1 : 1);
@@ -172,9 +184,9 @@ function NavbarButtonEffect(event) {
         }
     }
     // Show "clicked(聯絡方式)" on navbar when user reached bottom
-    if (event && this.scrollY >= document.documentElement.scrollHeight - deviceHeight - 100) {
+    if (event && this.scrollY >= document.documentElement.scrollHeight - deviceHeight - 1) {
         $("#contact_link").addClass("nav_clicked");
-        
+
         if (allowedExtend) {
             allowedHeight += 600;
             printWorks(allowedHeight);
