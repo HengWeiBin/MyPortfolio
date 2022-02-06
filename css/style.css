@@ -10,22 +10,20 @@
     background: linear-gradient(90deg, rgba(255,236,213,1) 0%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 80%, rgba(255,236,213,1) 100%);
 }
 
-.nav-link, .subtitle, .description, .table_foot_section ul h2, .table_foot_section ul li, .form label, footer p, .profile_area h1{
+.nav-link, .subtitle, .description, .table_foot_section ul h2, .table_foot_section ul li, footer p, .profile_area h1{
     font-family: 'Noto Sans TC', 'Microsoft Yahei', sans-serif;
 }
 
-#poster_title, .title, .title_certificate, .contact .title, .title_coffee, .title_campaign, .profile_area p
+#poster_title, .title, .title_certificate, .profile_area p, #profile_desc
 {
     font-family: 'Playfair Display', 'Times New Roman', serif;
 }
 
-a:hover, .table_foot_section ul li a:hover,
-.hover_coffee_color:hover h2, .hover_coffee_color:hover p,
-.title, .subtitle{
+a:hover, .table_foot_section ul li a:hover, .title, .subtitle{
     color: #8F6500;
 }
 
-.title{
+.title {
     font-size: 20pt;
     margin-top: 10px;
     font-weight: bold;
@@ -45,12 +43,6 @@ a:hover, .table_foot_section ul li a:hover,
     margin: 30px 30px;
     color: black;
     font-weight: normal;
-}
-
-.bg-center{
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
 }
 
 .container {
@@ -85,6 +77,7 @@ a:hover, .table_foot_section ul li a:hover,
     opacity: 50%;
     border-bottom: white 1px dashed;
     border-top: white 1px dashed;
+    pointer-events: none;
 }
 
 .profile_area{
@@ -191,7 +184,6 @@ a:hover, .table_foot_section ul li a:hover,
 }
 
 footer{
-    height: 25px;
     background-color: black;
     width: 100%;
 }
@@ -263,10 +255,6 @@ hr{
 }
 
 @media (min-width: 768px){
-    .subscribe_us{
-        display: block;
-    }
-
     .profile{
         margin: 110px auto 10% auto;
         padding-bottom: 20px;
@@ -309,10 +297,6 @@ hr{
         height: auto;
         position: absolute;
     }
-
-    .arrow_down{
-        display: none;
-    }
 }
 
 @media (min-width: 992px){    
@@ -351,7 +335,6 @@ hr{
 
 /*Css below belong to hamburger icon*/
 /*Icon 1*/
-
 .animated-icon1, .animated-icon2, .animated-icon3 {
     width: 30px;
     height: 20px;

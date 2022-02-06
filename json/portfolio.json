@@ -66,7 +66,7 @@
     {
         "title": "Multi-Object Tracking by Yolov4+DeepSort",
         "image_dir": "img/portfolio/mot.jpg",
-        "description": "&emsp;此次專案主要是在同一個影片上分不同等級進行單/多物件追蹤，我選擇利用機器學習的方式進行，Yolov4作爲detector，Deepsort作爲tracker。<br>&emsp;訓練Yolo的部分我選用了WiderPerson資料集中的8947張照片，它包含了很廣汎的場景路人資料如：比賽、交通、活動、舞蹈等。僅偵測一個類別。<br>&emsp;SORT是一款基於Kalman Filter的追蹤器，而DeepSORT解決了SORT追蹤物件在被遮擋後重新出現ID會重置的問題。",
+        "description": "&emsp;此次專案主要是在同一個影片上分不同等級進行單/多物件追蹤，我選擇利用機器學習的方式進行，Yolov4作爲detector，Deepsort作爲tracker。<br>&emsp;訓練Yolo的部分我選用了WiderPerson資料集中的8947張照片，它包含了很廣汎的場景路人資料如：比賽、交通、活動、舞蹈等。僅偵測一個類別。<br>&emsp;SORT是一款基於Kalman Filter的追蹤器，而DeepSORT解決了SORT追蹤物件在被遮擋後重新出現ID會重置的問題。<br><br>Average IoU<br>Level 1 : 75.88%<br>Level 2 : 74.65%<br>Level 3 : 78.44%<br>Level 4 : 67.10%<br>Level 5 : 75.19%<br>Level 6 : 63.60%<br><br>Average Time/Frame : 185.39milli-sec(GTX-1650)",
         "link": "https://youtu.be/k7XqmvXOu1s",
         "date_start": "2022-01-13",
         "date_end": "2022-01-20"

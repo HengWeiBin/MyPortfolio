@@ -1,6 +1,8 @@
 "use strict";
 let deviceWidth = document.documentElement.clientWidth;
 let deviceHeight = document.documentElement.clientHeight;
+let allowedHeight = 700;
+let allowedExtend = true;
 
 $(document).ready(main);
 
@@ -21,14 +23,16 @@ async function readJson(dir) {
     }
 }
 
-async function PrintWorks() {
+async function printWorks(allowedHeight) {
     let works = "";
     let data = await readJson("json/portfolio.json");
+    let ncol = Math.floor(allowedHeight / 200);
+    let ndata = Math.min(ncol, data.length - 1);
 
     //sort date according to date
     data.sort((a, b) => Date.parse(a.date_end) > Date.parse(b.date_end) ? -1 : 1);
 
-    for (let i = 0; i < data.length - 1; i++) {
+    for (let i = 0; i < ndata; i++) {
         let work, link = "";
 
         if (data[i].link != "#") {
@@ -69,14 +73,18 @@ async function PrintWorks() {
     $("#works_area").html(works);
 }
 
-async function PrintCertificates() {
+async function printCertificates(allowedHeight) {
     let data = await readJson("json/certificates.json");
     let works = "";
+    let nrow = Math.floor((deviceWidth - 200) / 260 + 0.19);
+    let ncol = Math.floor(allowedHeight / 300);
+    let ndata = nrow * ncol;
+    ndata = Math.min(ndata, data.length - 1);
 
     //sort date according to date
     data.sort((a, b) => Date.parse(a.date) > Date.parse(b.date) ? -1 : 1);
 
-    for (let i = 0; i < data.length - 1; i++) {
+    for (let i = 0; i < ndata; i++) {
         let work;
         if (deviceWidth < 768) {
             work = `<div>
@@ -134,6 +142,7 @@ function NavbarButtonControl(event) {
     let destination;
     if (event.data == "portfolio") destination = "works_area";
     else if (event.data == "contact") destination = "foot_logo";
+    else if (event.data == "home") destination = "";
 
     //Redirect to home page if this link is clicked at another page
     if (event.data != "contact" && !(location.pathname.endsWith("/index.html") || location.pathname.endsWith("/"))) {
@@ -143,14 +152,18 @@ function NavbarButtonControl(event) {
     $('html, body').animate({
         scrollTop: $(`#${destination}`).offset().top - 85
     }, 500);
+    //disallow data extend for 1 second
+    allowedExtend = false;
+    setTimeout(() => allowedExtend = true, 1000);
 }
 
 function NavbarButtonEffect(event) {
     if (/certificate.html/.test(window.location.href)) {
-        $("#certificate_link").addClass("nav_clicked")
+        $("#certificate_link").addClass("nav_clicked");
 
-    } else if ((location.pathname.endsWith("/index.html") || location.pathname.endsWith("/")) && event) {
-        if (this.scrollY > $("#works_area").offset().top - 100) {
+    } else if ((location.pathname.endsWith("/index.html") || location.pathname.endsWith("/"))) {
+        $("#home_link").addClass("nav_clicked");
+        if (event && this.scrollY > $("#works_area").offset().top - 100) {
             $(".profile_area").addClass("d-fadeout");//hide profile area when scroll down
             $("#portfolio_link").addClass("nav_clicked");// Show "clicked(作品集)" on navbar when user reached bottom
         } else {
@@ -161,6 +174,12 @@ function NavbarButtonEffect(event) {
     // Show "clicked(聯絡方式)" on navbar when user reached bottom
     if (event && this.scrollY >= document.documentElement.scrollHeight - deviceHeight - 1) {
         $("#contact_link").addClass("nav_clicked");
+        
+        if (allowedExtend) {
+            allowedHeight += 600;
+            printWorks(allowedHeight);
+            printCertificates(allowedHeight);
+        }
     } else {
         $("#contact_link").removeClass("nav_clicked");
     }
@@ -202,6 +221,7 @@ function initListener() {
     //navbar button listener
     $("#portfolio_link").click("portfolio", NavbarButtonControl);
     $("#contact_link").click("contact", NavbarButtonControl);
+    $("#home_link").click("home", NavbarButtonControl);
     $("#goTopBtn").click(function () { $('html, body').animate({ scrollTop: 0 }, 500); });
 }
 
@@ -214,7 +234,7 @@ function checkHashTag() {
     }
 }
 
-function showProfileDescription() {
+function printProfileDescription() {
     if (deviceWidth > 768) {
         $("#profile_desc").html(`&emsp;我來自馬來西亞柔佛州，出生於一個平凡的小康之家。
     自我多年前赴臺留學之後，妹妹中學畢業選擇出國留學，也因爲一場疫情，家人們都分散在世界各地。
@@ -226,11 +246,118 @@ function showProfileDescription() {
     }
 }
 
+function printHead() {
+    $("head").html(`<meta charset="UTF-8">
+                    <title>王偉斌</title>
+                    <link rel="icon" href="img/favicon.png" type="image/x-icon">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <meta property='og:title' content='王偉斌-作品集'/>
+                    <meta property='og:image' content='img/websiteThumbnail.jpg'/>
+                    <meta property='og:description' content='該上班上班，該睡覺睡覺'/>
+                    <meta property='og:url' content='URL OF YOUR WEBSITE'/>
+                    <meta property='og:image:width' content='1200' />
+                    <meta property='og:image:height' content='627' />
+
+                    <!--font-->
+                    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Noto+Sans+TC&display=swap" rel="stylesheet">
+                    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+                    <!--Normalize css-->
+                    <link rel="stylesheet" href="css/normalize.css">
+                    <!-- Bootstrap core CSS -->
+                    <link rel="stylesheet" href="css/bootstrap.min.css">
+                    <!-- Material Design Bootstrap -->
+                    <link rel="stylesheet" href="css/mdb.min.css">
+                    <!--custom styles-->
+                    <link rel="stylesheet" href="css/style.css">`
+    );
+}
+
+function printNavBar() {
+    $("nav").html(`<!--漢堡選單-->
+                    <button class="navbar-toggler third-button" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <div class="animated-icon3"><span></span><span></span><span></span></div>
+                    </button>
+
+                    <a class="navbar-brand" href="index.html"><img src="img/nav_logo.png" alt="logo"></a>
+
+                    <!--網頁選單-->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <!--top icon-->
+                                    <div class="row justify-content-end navbar-nav nav-icon">
+                                        <a href="#"><img src="img/icon_where.png" alt="location"></a>
+                                        <div class="location">
+                                            <p class="text-center"></p>
+                                        </div>
+                                    </div>
+
+                                    <!--導航選單-->
+                                    <ul class="row justify-content-end navbar-nav ml-auto">
+                                        <li class="nav-item"><a id="home_link" class="nav-link">首頁</a></li>
+                                        <li class="nav-item"><a id="portfolio_link" class="nav-link">作品集</a></li>
+                                        <li class="nav-item"><a id="certificate_link" class="nav-link"
+                                                href="certificate.html">證書集</a></li>
+                                        <li class="nav-item"><a id="contact_link" class="nav-link">聯絡方式</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`
+    );
+}
+
+function printFooter() {
+    $("footer").html(`<div class="row foot-bg align-items-center">
+                        <div class="col-md-3">
+                            <div class="row justify-content-center">
+                                <img id="foot_logo" src="img/nav_logo.png">
+                            </div>
+                        </div>
+                        <canvas id="line"></canvas>
+
+                        <div class="col-md-9 table_foot_section">
+                            <div class="row">
+                                <div class="col-6 row">
+                                    <h2 class="col-md-6">認識我</h2>
+                                    <ul class="col-md-6">
+                                        <li><a href="https://www.facebook.com/weibin1898/">Facebook</a></li>
+                                        <li><a href="https://www.instagram.com/wei_bin/">Instagram</a></li>
+                                        <li><a href="https://github.com/HengWeiBin">Github</a></li>
+                                        <li><a href="104.pdf" target="_blank">104 履歷</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-6 row align-items-center">
+                                    <h2 class="col-md-6">聯係我</h2>
+                                    <ul class="col-md-6">
+                                        <li><a href="mailto:wbsc1898@hotmail.com">wbsc1898@hotmail.com</a></li>
+                                        <li><a href="#">(+886)0916180245</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--copyright-->
+                    <p class="col-4 col-md-3">
+                        Copyright 2022. All rights reserved.
+                    </p>`
+    );
+}
+
 async function main() {
+    printHead();
+    printNavBar();
+    printFooter();
+    printProfileDescription();
+
     if (location.pathname.endsWith("/index.html") || location.pathname.endsWith("/")) {
-        await PrintWorks();
+        await printWorks(allowedHeight);
     } else if (location.pathname.endsWith("/certificate.html")) {
-        await PrintCertificates();
+        await printCertificates(allowedHeight);
     }
 
     NavbarButtonEffect();
@@ -238,8 +365,6 @@ async function main() {
     new WOW().init();
 
     showCountryCode();
-
-    showProfileDescription();
 
     initListener();
 
