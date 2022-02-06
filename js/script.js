@@ -163,7 +163,7 @@ function NavbarButtonEffect(event) {
 
     } else if ((location.pathname.endsWith("/index.html") || location.pathname.endsWith("/"))) {
         $("#home_link").addClass("nav_clicked");
-        if (event && this.scrollY > $("#works_area").offset().top - 100) {
+        if (window.pageYOffset > $("#works_area").offset().top - 100) {
             $(".profile_area").addClass("d-fadeout");//hide profile area when scroll down
             $("#portfolio_link").addClass("nav_clicked");// Show "clicked(作品集)" on navbar when user reached bottom
         } else {
@@ -172,7 +172,7 @@ function NavbarButtonEffect(event) {
         }
     }
     // Show "clicked(聯絡方式)" on navbar when user reached bottom
-    if (event && this.scrollY >= document.documentElement.scrollHeight - deviceHeight - 50) {
+    if (window.pageYOffset >= document.documentElement.scrollHeight - deviceHeight - 50) {
         $("#contact_link").addClass("nav_clicked");
         
         if (allowedExtend) {
@@ -185,7 +185,7 @@ function NavbarButtonEffect(event) {
     }
 
     //show go top when user scroll down more than 500unit
-    if (event && this.scrollY > 500) {
+    if (window.pageYOffset > 500) {
         $("#goTopBtn").removeClass("d-none");
     } else {
         $("#goTopBtn").addClass("d-none");
@@ -216,7 +216,7 @@ function initListener() {
     });
 
     //scroll listener
-    window.addEventListener("scroll", NavbarButtonEffect);
+    //window.addEventListener("scroll", NavbarButtonEffect);
 
     //navbar button listener
     $("#portfolio_link").click("portfolio", NavbarButtonControl);
