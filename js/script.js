@@ -28,12 +28,12 @@ async function printWorks(allowedHeight) {
     let data = await readJson("json/portfolio.json");
     let ncol = Math.floor(allowedHeight / 200);
 
-    let ndata;
-    if (deviceWidth < 992) {
-        ndata = data.length - 1;
-    } else {
-        ndata = Math.min(ncol, data.length - 1);
-    }
+    let ndata = Math.min(ncol, data.length - 1);
+    // if (deviceWidth < 992) {
+    //     ndata = data.length - 1;
+    // } else {
+    //     ndata = Math.min(ncol, data.length - 1);
+    // }
 
     //sort date according to date
     data.sort((a, b) => Date.parse(a.date_end) > Date.parse(b.date_end) ? -1 : 1);
@@ -61,7 +61,7 @@ async function printWorks(allowedHeight) {
             work = `<div id="work${i}" class="container card default-gradient">
                         <div class="row align-items-start">
                             <div class="col-md-6 wow bounceInLeft">
-                                <img class="work_pic" src="${data[i].image_dir}">
+                                <img class="work_pic" src="${data[i].image_dir}" loading="lazy">
                                 <p class="item_description">(${data[i].date_start}-${data[i].date_end})</p>
                             </div>
                             <div class="col-md-6 wow bounceInRight">
@@ -85,13 +85,16 @@ async function printCertificates(allowedHeight) {
     let nrow = Math.floor((deviceWidth - 200) / 260 + 0.19);
     let ncol = Math.floor(allowedHeight / 300);
 
-    let ndata;
-    if (deviceWidth < 992) {
-        ndata = data.length - 1;
-    } else {
-        ndata = nrow * ncol;
-        ndata = Math.min(ndata, data.length - 1);
-    }
+    let ndata = nrow * ncol;
+    ndata = Math.min(ndata, data.length - 1);
+
+    // let ndata;
+    // if (deviceWidth < 992) {
+    //     ndata = data.length - 1;
+    // } else {
+    //     ndata = nrow * ncol;
+    //     ndata = Math.min(ndata, data.length - 1);
+    // }
 
     //sort date according to date
     data.sort((a, b) => Date.parse(a.date) > Date.parse(b.date) ? -1 : 1);
@@ -108,7 +111,7 @@ async function printCertificates(allowedHeight) {
                     `
         } else {
             work = `<div id="certificate" class="wow slideInUp">
-                        <img class="d-block w-100 hover_scale" src="${data[i].image_dir}" alt="${data[i].title}">
+                        <img class="d-block w-100 hover_scale" src="${data[i].image_dir}" alt="${data[i].title}" loading="lazy">
                         <h1 class="title_certificate">${data[i].title}</h1>
                         <hr>
                         <p class="item_description">${data[i].date}</p>
@@ -184,7 +187,7 @@ function NavbarButtonEffect(event) {
         }
     }
     // Show "clicked(聯絡方式)" on navbar when user reached bottom
-    if (event && this.scrollY >= document.documentElement.scrollHeight - deviceHeight - 1) {
+    if (event && this.scrollY >= document.documentElement.scrollHeight - deviceHeight - 300) {
         $("#contact_link").addClass("nav_clicked");
 
         if (allowedExtend) {
