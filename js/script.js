@@ -29,11 +29,10 @@ async function printWorks(allowedHeight) {
     let ncol = Math.floor(allowedHeight / 200);
 
     let ndata = Math.min(ncol, data.length - 1);
-    // if (deviceWidth < 992) {
-    //     ndata = data.length - 1;
-    // } else {
-    //     ndata = Math.min(ncol, data.length - 1);
-    // }
+    if (ncol > data.length + ncol * 3) {
+        allowedExtend = false;
+        return;
+    }
 
     //sort date according to date
     data.sort((a, b) => Date.parse(a.date_end) > Date.parse(b.date_end) ? -1 : 1);
@@ -87,14 +86,10 @@ async function printCertificates(allowedHeight) {
 
     let ndata = nrow * ncol;
     ndata = Math.min(ndata, data.length - 1);
-
-    // let ndata;
-    // if (deviceWidth < 992) {
-    //     ndata = data.length - 1;
-    // } else {
-    //     ndata = nrow * ncol;
-    //     ndata = Math.min(ndata, data.length - 1);
-    // }
+    if (nrow * ncol > data.length + nrow * 3) {
+        allowedExtend = false;
+        return;
+    }
 
     //sort date according to date
     data.sort((a, b) => Date.parse(a.date) > Date.parse(b.date) ? -1 : 1);
