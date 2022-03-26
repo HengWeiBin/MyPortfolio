@@ -48,9 +48,9 @@
         "date_end": "2021-06"
     },
     {
-        "title": "Jetbot開發（Jetson Nano)",
+        "title": "Jetbot開發（Jetson Nano）",
         "image_dir": "img/portfolio/Jetbot.jpg",
-        "description": "Jetson Nano 開發套件是一部小而強大的電腦，可同時執行多個神經網路，適合應用於影像分類、物體偵測、分割和語音處理。<br><br>相關開發經驗：<br>1)<a href='https://youtu.be/-fbSL_2O8S0'>手柄遙控</a><br>2)<a href='https://youtu.be/k8N54P-Q1eM'>Resnet道路辨識</a><a href='https://youtu.be/2zPBWgPR0tU'>&emsp;[link2]</a><br>3)<a href='https://youtu.be/CsE7UcPmF4g'>直線自走</a><br>4)障礙物閃避<br>5)<a href='https://youtu.be/iPBfviURAYA'>路標辨識</a><br>6)<a href='https://youtu.be/h5gTWiYMuS8'>DQN强化式學習自走</a>",
+        "description": "Jetson Nano 開發套件是一部小而強大的電腦，可同時執行多個神經網路，適合應用於影像分類、物體偵測、分割和語音處理。<br><br>相關開發經驗：<br>1)<a href='https://youtu.be/-fbSL_2O8S0'>手柄遙控</a><br>2)<a href='https://youtu.be/TqKu3WrPB00'>Yolov4物件辨識</a><br>3)<a href='https://youtu.be/k8N54P-Q1eM'>Resnet道路辨識</a><a href='https://youtu.be/2zPBWgPR0tU'>&emsp;[link2]</a><br>4)<a href='https://youtu.be/CsE7UcPmF4g'>直線自走</a><br>5)障礙物閃避<br>6)<a href='https://youtu.be/iPBfviURAYA'>路標辨識</a><br>7)<a href='https://youtu.be/h5gTWiYMuS8'>DQN强化式學習自走</a>",
         "link": "#",
         "date_start": "2021-09",
         "date_end": "2022-01"
@@ -58,7 +58,7 @@
     {
         "title": "Humming Bird室内編隊無人機表演",
         "image_dir": "img/portfolio/無人機表演.jpg",
-        "description": "Humming Bire EDU是一款編隊飛行教育無人機，可室内室外飛行。支援Scratch和Python程式設計進行單機或多機編隊飛行。<br><br>&emsp;這次很幸運能參與到<b>無人機都市街谷工作坊</b>，有機會與互動設計系的同學進行交流互動，設計這場表演。<br><br>&emsp;我們是以Scratch進行開發，主題為<b>都市綠洲</b>。表演首先要體現出城市與大自然的强烈對比，然後在進行結合，表達都市綠洲的情景。",
+        "description": "Humming Bire EDU是一款編隊飛行教育無人機，可室内室外飛行。支援Scratch和Python程式設計進行單機或多機編隊飛行。<br><br>&emsp;這次很幸運能參與到<b>無人機都市街谷工作坊</b>，有機會與互動設計系的同學進行交流互動，設計這場表演。<br><br>&emsp;我們是以Scratch進行開發，主題為<b>都市綠洲</b>。表演首先要體現出城市與大自然的强烈對比，然後在進行結合，表達都市綠洲的情景。<br><br>&emsp;我在團隊中主要負責程式設計，編寫無人機群飛的舞步、動作，配合我們的主題情境，與準備好的音樂影片做結合。",
         "link": "https://youtu.be/1piOlIqWTyw",
         "date_start": "2022-01-08",
         "date_end": "2022-01-09"
