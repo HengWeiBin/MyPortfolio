@@ -3,8 +3,8 @@
     box-sizing: inherit;
 }
 
-.default-bg-color {background-color: rgb(35, 25, 0);}
-.bg-transulent-dark{ background-color: rgba(0, 0, 0, 80%); }
+.default-bg-color {background-color: #fae5c9;}
+.navbar-color{ background-color: rgba(0, 0, 0, 80%); }
 .default-gradient{
     background: rgb(255,236,213);
     background: linear-gradient(90deg, rgba(255,236,213,1) 0%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 80%, rgba(255,236,213,1) 100%);
@@ -19,7 +19,13 @@
     font-family: 'Playfair Display', 'Times New Roman', serif;
 }
 
-a:hover, .table_foot_section ul li a:hover, .title, .subtitle{
+#profile_desc
+{
+    font-size: large;
+    font-weight: bold;
+}
+
+a:hover, .table_foot_section ul li a:hover, .title{
     color: #8F6500;
 }
 
@@ -32,7 +38,7 @@ a:hover, .table_foot_section ul li a:hover, .title, .subtitle{
 }
 
 .subtitle{
-    font-size: 15pt;
+    font-size: 12pt;
     font-weight: bold;
     text-align: center;
     width: 100%;
@@ -43,6 +49,12 @@ a:hover, .table_foot_section ul li a:hover, .title, .subtitle{
     margin: 30px 30px;
     color: black;
     font-weight: normal;
+}
+
+.desc_button {
+    border:#8F6500 1px solid;
+    border-radius: 10px;
+    padding: 2px 10px;
 }
 
 .container {
@@ -83,7 +95,6 @@ a:hover, .table_foot_section ul li a:hover, .title, .subtitle{
 .profile_area{
     position: fixed;
     width: 100%;
-    background-color: #fae5c9;
     opacity: 1;
     transition: opacity 1000ms 0ms;;
 }
@@ -103,11 +114,10 @@ a:hover, .table_foot_section ul li a:hover, .title, .subtitle{
 
 .profile{
     margin: 110px auto 10% auto;
-    width: 300px;
+    width: 350px;
     height: 80vh;
     overflow-y: scroll;
-    background-color: #f5d2a5;
-    box-shadow: -10px 10px 15px gray;
+    /* box-shadow: -10px 10px 15px gray; */
 }
 
 .profile::-webkit-scrollbar{
@@ -130,21 +140,11 @@ a:hover, .table_foot_section ul li a:hover, .title, .subtitle{
 
 .card{
     margin: 10px 20px;
-    border: outset 5px;
+    border-radius: 10px;
 }
 
 .card img{
     width: 100%;
-}
-
-.hover_scale {
-    transform: scale(1);
-    transition: transform 500ms;
-}
-
-.hover_scale:hover{
-    transform: scale(1.5);
-    transition: transform 500ms;
 }
 
 .foot-bg{
@@ -217,16 +217,18 @@ footer p{
     z-index: 99; /* Make sure it does not overlap */
     border: none; /* Remove borders */
     outline: none; /* Remove outline */
-    background-color: #8F6500; /* Set a background color */
-    color: white; /* Text color */
     padding: 10px; /* Some padding */
     border-radius: 50px; /* Rounded corners */
-    font-size: 15px; /* Increase font size */
     opacity: 60%;
+    background-color: transparent;
 }
 
 #goTopBtn:hover {
-    background-color: #555; /* Add a dark-grey background on hover */
+    opacity: 100%;
+}
+
+#goTopBtn img {
+    height: 50px;
 }
 
 .title_certificate{
@@ -237,7 +239,7 @@ footer p{
 }
 
 .item_description{
-    font-size: 8pt;
+    font-size: 12pt;
     color: gray;
     font-style: italic;
 }
@@ -254,7 +256,27 @@ hr{
     margin: 60px 90px;
 }
 
+img, .profile img {
+    border-radius: 10px!important;
+    padding-left: 0;
+    padding-right: 0;
+}
+
 @media (min-width: 768px){
+    .hover_scale {
+        transform: scale(1);
+        transition: transform 500ms;
+    }
+    
+    .hover_scale:hover{
+        transform: scale(1.5);
+        transition: transform 500ms;
+    }
+    
+    .title {
+        font-size: 30pt;
+    }
+
     .profile{
         margin: 110px auto 10% auto;
         padding-bottom: 20px;
@@ -278,6 +300,14 @@ hr{
     .profile_button img{
         width: 35px;
         height: 35px;
+    }
+
+    .card {
+        padding-bottom: 10px;
+    }
+
+    .card img{
+        margin-top: 15px;
     }
 
     .table_foot_section ul{
@@ -314,7 +344,6 @@ hr{
         padding-bottom: 20px;
         width: 900px;
         height: 75vh;
-        background-color: #f5d2a5;
     }
 
     #line {

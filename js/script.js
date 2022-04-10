@@ -41,7 +41,7 @@ async function printWorks(allowedHeight) {
         let work, link = "";
 
         if (data[i].link != "#") {
-            link = `<a class="description" href="${data[i].link}" target="_blank">前往查看 ></a>`;
+            link = `<a class="description desc_button" href="${data[i].link}" target="_blank">前往查看 ></a>`;
         }
 
         if (deviceWidth < 768) { //手機界面
@@ -299,7 +299,7 @@ function printNavBar() {
                                 <div class="col">
                                     <!--top icon-->
                                     <div class="row justify-content-end navbar-nav nav-icon">
-                                        <a href="#"><img src="img/icon_where.png" alt="location"></a>
+                                        <a href="#" style="pointer-events:none"><img src="img/icon_where.png" alt="location"></a>
                                         <div class="location">
                                             <p class="text-center"></p>
                                         </div>
