@@ -3,6 +3,8 @@
     box-sizing: inherit;
 }
 
+.row {margin: 0;}
+
 .default-bg-color {background-color: #fae5c9;}
 .navbar-color{ background-color: rgba(0, 0, 0, 80%); }
 .default-gradient{

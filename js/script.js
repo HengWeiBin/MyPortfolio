@@ -1,3 +1,4 @@
+
 "use strict";
 let deviceWidth = document.documentElement.clientWidth;
 let deviceHeight = document.documentElement.clientHeight;
@@ -267,6 +268,7 @@ function printHead() {
                     <meta property='og:url' content='URL OF YOUR WEBSITE'/>
                     <meta property='og:image:width' content='1200' />
                     <meta property='og:image:height' content='627' />
+                    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 
                     <!--font-->
                     <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Noto+Sans+TC&display=swap" rel="stylesheet">
