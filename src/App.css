@@ -85,6 +85,8 @@ a:hover, .table_foot_section ul li a:hover, .title{
   font-weight: lighter;
   font-size: 9pt;
   color:white !important;
+  background-color: transparent;
+  border: none;
 }
 
 .nav-link:hover {

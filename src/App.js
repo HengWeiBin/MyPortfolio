@@ -19,12 +19,12 @@ function Navbar() {
     let [isContactInfo, setIsContactInfo] = useState(false);
     let navigate = useNavigate();
     let navButtonClickHandler = (event) => {
-        if (event.target.id == "home_link") {
+        if (event.target.id === "home_link") {
             setIsHome(true);
             setIsCertificate(false);
             navigate(process.env.PUBLIC_URL);
         }
-        else if (event.target.id == "certificate_link") {
+        else if (event.target.id === "certificate_link") {
             setIsCertificate(true);
             setIsHome(false);
             setIsPortfolio(false);
@@ -110,13 +110,13 @@ function Navbar() {
                         {/* <!--導航選單--> */}
                         <ul className="col navbar-nav ml-auto justify-content-end">
                             <li className="nav-item">
-                                <a id="home_link" className={"nav-link" + (isHome ? ' nav_clicked' : '')} href="#" onClick={navButtonClickHandler}>首頁</a>
+                                <button id="home_link" className={"nav-link" + (isHome ? ' nav_clicked' : '')} onClick={navButtonClickHandler}>首頁</button>
                             </li>
                             <li className="nav-item">
-                                <a id="portfolio_link" className={"nav-link" + (isPortfolio ? ' nav_clicked' : '')} href="#">作品集</a>
+                                <button id="portfolio_link" className={"nav-link" + (isPortfolio ? ' nav_clicked' : '')}>作品集</button>
                             </li>
                             <li className="nav-item">
-                                <a id="certificate_link" className={"nav-link" + (isCertificate ? ' nav_clicked' : '')} href="#" onClick={navButtonClickHandler}>證書集</a>
+                                <button id="certificate_link" className={"nav-link" + (isCertificate ? ' nav_clicked' : '')} onClick={navButtonClickHandler}>證書集</button>
                             </li>
                             <li className="nav-item">
                                 <a id="contact_link" className={"nav-link" + (isContactInfo ? ' nav_clicked' : '')} href="#foot">聯絡方式</a>
@@ -170,7 +170,7 @@ function Footer() {
             <div className="row foot-bg align-items-center">
                 <div className="col-md-3">
                     <div className="row justify-content-center">
-                        <img id="foot_logo" src={process.env.PUBLIC_URL + "/img/nav_logo.png"} />
+                        <img id="foot_logo" src={process.env.PUBLIC_URL + "/img/nav_logo.png"} alt="foot logo"/>
                     </div>
                 </div>
                 <canvas id="line"></canvas>
@@ -180,17 +180,17 @@ function Footer() {
                         <div className="col-6 row">
                             <h2 className="col-md-6">認識我</h2>
                             <ul className="col-md-6">
-                                <li><a href="https://www.facebook.com/weibin1898/" target="_blank">Facebook</a></li>
-                                <li><a href="https://www.instagram.com/wei_bin/" target="_blank">Instagram</a></li>
-                                <li><a href="https://github.com/HengWeiBin" target="_blank">Github</a></li>
-                                <li><a href={process.env.PUBLIC_URL + "/104.pdf"} target="_blank">104 履歷</a></li>
+                                <li><a href="https://www.facebook.com/weibin1898/" target="_blank" rel="noreferrer">Facebook</a></li>
+                                <li><a href="https://www.instagram.com/wei_bin/" target="_blank" rel="noreferrer">Instagram</a></li>
+                                <li><a href="https://github.com/HengWeiBin" target="_blank" rel="noreferrer">Github</a></li>
+                                <li><a href={process.env.PUBLIC_URL + "/104.pdf"} target="_blank" rel="noreferrer">104 履歷</a></li>
                             </ul>
                         </div>
                         <div className="col-6 row align-items-center">
                             <h2 className="col-md-6">聯係我</h2>
                             <ul className="col-md-6">
                                 <li><a href="mailto:wbsc1898@hotmail.com">wbsc1898@hotmail.com</a></li>
-                                <li><a id="Tel">Tel: (+886)0916180245</a></li>
+                                <li id="Tel">Tel: (+886)0916180245</li>
                             </ul>
                         </div>
                     </div>

@@ -2,7 +2,7 @@ import './css/normalize.css';
 import './css/bootstrap.min.css';
 import './css/mdb.min.css';
 import './App.css';
-import React, { useState, useEffect, lazy } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Offset50px() {
     return (
