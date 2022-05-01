@@ -234,7 +234,7 @@ function Footer() {
                     </Row>
                 </Col>
                 <canvas id="line"></canvas>
-                {isMobile? mobileComponent() : desktopComponent()}
+                {isMobile ? mobileComponent() : desktopComponent()}
             </Row>
 
             <Col as='p' xs={4} md={3}>
@@ -272,7 +272,9 @@ function GoTopButton() {
         }
     }, []);
     return (
-        <button id="goTopBtn" className={isShow ? '' : 'd-none'} title="Go to top"><img src={process.env.PUBLIC_URL + "/img/icon_goTop.png"}/></button>
+        <button id="goTopBtn" className={isShow ? '' : 'd-none'} title="Go to top">
+            <img src={process.env.PUBLIC_URL + "/img/icon_goTop.png"} alt="Go top button" />
+        </button>
     );
 }
 
