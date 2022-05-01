@@ -51,7 +51,7 @@ function Navbar() {
         async function scrollToPortfolio() {
             if (!/certificate/.test(window.location.href)) {
                 window.scroll({
-                    top: document.getElementById("profile").getBoundingClientRect().height - 85,
+                    top: document.getElementById("profile").getBoundingClientRect().height - 185,
                     behavior: 'smooth'
                 });
             } else {

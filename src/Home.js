@@ -145,7 +145,7 @@ function Profile() {
                             <a title="Instagram" href="https://www.instagram.com/wei_bin/" target="_blank" rel="noreferrer"><img
                                 className="hover_scale" src={PublicURL + "/img/icon_instagram.png"} alt="Instagram"/></a>
                         </div>
-                        <p id="profile_desc" className="description">&emsp;{description}</p>
+                        <p id="profile_desc" className="description">&emsp;{description}&emsp;</p>
                     </div>
                 </div>
             </div>
