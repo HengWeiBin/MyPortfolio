@@ -21,7 +21,7 @@ function Navbar() {
         if (event.target.id === "home_link") {
             setIsHome(true);
             setIsCertificate(false);
-            navigate("/");
+            navigate(process.env.PUBLIC_URL);
         }
         else if (event.target.id === "certificate_link") {
             setIsCertificate(true);
