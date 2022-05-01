@@ -7,14 +7,26 @@ html, body{
   box-sizing: inherit;
 }
 
-.row {margin:0;}
-.container {padding: 0;}
+.row {
+  margin:0;
+  --mdb-gutter-x: 1.5rem;
+}
+
+.col-lg-1,.col-lg-10,.col-lg-11,.col-lg-12,.col-lg-2,.col-lg-3,.col-lg-4,.col-lg-5,.col-lg-6,.col-lg-7,.col-lg-8,.col-lg-9,
+.col-md-1,.col-md-10,.col-md-11,.col-md-12,.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-6,.col-md-7,.col-md-8,.col-md-9,
+.col-sm-1,.col-sm-10,.col-sm-11,.col-sm-12,.col-sm-2,.col-sm-3,.col-sm-4,.col-sm-5,.col-sm-6,.col-sm-7,.col-sm-8,.col-sm-9,
+.col-xs-1,.col-xs-10,.col-xs-11,.col-xs-12,.col-xs-2,.col-xs-3,.col-xs-4,.col-xs-5,.col-xs-6,.col-xs-7,.col-xs-8,.col-xs-9,
+.container{padding:0;}
 
 .default-bg-color {background-color: #fae5c9;}
 .navbar-color{ background-color: rgba(0, 0, 0, 80%); }
 .default-gradient{
   background: rgb(255,236,213);
   background: linear-gradient(90deg, rgba(255,236,213,1) 0%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 80%, rgba(255,236,213,1) 100%);
+}
+
+.nav-link, .nav-icon p, #Tel, .table_foot_section h2, .table_foot_section ul li a, footer p {
+  color: #FFECD5 !important;
 }
 
 .nav-link, .subtitle, .description, .table_foot_section ul h2, .table_foot_section ul li, footer p, .profile_area h1{
@@ -34,6 +46,11 @@ html, body{
 
 a:hover, .table_foot_section ul li a:hover, .title{
   color: #8F6500;
+  transition: color 200ms 0ms;
+}
+
+a {
+  text-decoration: none;
 }
 
 .title {
@@ -42,6 +59,7 @@ a:hover, .table_foot_section ul li a:hover, .title{
   font-weight: bold;
   text-align: center;
   width: 100%;
+  padding: 10px;
 }
 
 .subtitle{
@@ -84,12 +102,13 @@ a:hover, .table_foot_section ul li a:hover, .title{
 .nav-link{
   font-weight: lighter;
   font-size: 9pt;
-  color:white !important;
   background-color: transparent;
   border: none;
+  opacity: 100%;
+  transition: opacity 200ms 0ms;
 }
 
-.nav-link:hover {
+.nav-link:hover, .foot_section_link:hover {
   opacity: 50%;
   transition: opacity 300ms 0ms;
 }
@@ -99,7 +118,6 @@ a:hover, .table_foot_section ul li a:hover, .title{
 }
 
 .nav-icon p, #Tel{
-  color: #FFECD5;
   margin: 5.5px 0;
 }
 
@@ -111,8 +129,8 @@ a:hover, .table_foot_section ul li a:hover, .title{
 
 .nav_clicked{
   opacity: 50%;
-  border-bottom: white 1px dashed;
-  border-top: white 1px dashed;
+  border-bottom: #FFECD5 1px dashed;
+  border-top: #FFECD5 1px dashed;
   pointer-events: none;
 }
 
@@ -156,7 +174,6 @@ a:hover, .table_foot_section ul li a:hover, .title{
   width: 350px;
   height: 80vh;
   overflow-y: scroll;
-  /* box-shadow: -10px 10px 15px gray; */
 }
 
 .profile::-webkit-scrollbar{
@@ -186,6 +203,8 @@ a:hover, .table_foot_section ul li a:hover, .title{
   max-width: 90vw;
   margin: 10px auto;
   border-radius: 10px;
+  border: 0;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 7%), 0 4px 6px -2px rgb(0 0 0 / 5%);
 }
 
 .work_pic{
@@ -203,20 +222,16 @@ a:hover, .table_foot_section ul li a:hover, .title{
   width: auto !important;
 }
 
-.table_foot_section{
-  padding: 0px 30px;
-}
-
 .table_foot_section ul{
   padding: 0 auto;
 }
 
 .table_foot_section h2{
-  color: #FFECD5;
   font-size: 12pt;
   font-weight: bold;
   text-align: center;
   align-self: center;
+  padding-right: 20px;
 }
 
 .table_foot_section ul li{
@@ -225,9 +240,9 @@ a:hover, .table_foot_section ul li a:hover, .title{
   text-align: center;
 }
 
-.table_foot_section ul li a{
-  color: #FFECD5;
-  line-height: 20px;
+.foot_section_link{
+  opacity: 100%;
+  transition: opacity 300ms 0ms;
 }
 
 footer{
@@ -237,7 +252,6 @@ footer{
 
 footer p{
   font-size: 6pt;
-  color: #FFECD5;
   margin: auto;
   text-align: center;
 }
@@ -381,14 +395,14 @@ img, .profile img {
   }
 
   .nav-item{
-      border-left: 1px white solid;
+      border-left: 1px #FFECD5 solid;
       padding: 0 12px;
       text-align: center;
       width: fit-content;
   }
   
   .navbar-collapse ul{
-      border-right: 1px white solid;
+      border-right: 1px #FFECD5 solid;
       padding: 0;
   }
 

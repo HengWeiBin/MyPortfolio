@@ -1,6 +1,4 @@
-import './css/normalize.css';
-import './css/bootstrap.min.css';
-import './css/mdb.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import React, { useState, useEffect } from 'react';
 
@@ -68,7 +66,7 @@ function Works() {
         updateResize();
         window.addEventListener("resize", updateResize);
 
-        return window.removeEventListener("resize", updateResize);
+        return () => window.removeEventListener("resize", updateResize);
     }, [])
 
     return (
@@ -129,7 +127,7 @@ function Profile() {
 
     return (
         <div className='container default-gradient'>
-            <div className={profileAreaClass}>
+            <div id="profile" className={profileAreaClass}>
                 <div className="container row align-items-center profile default-bg-color">
                     <img className="col-md-5 col-8 col-lg-4" src={PublicURL + "/img/portrait.jpg"} alt="Portrait"/>
                     <div className="col-sm-12 col-md-6 col-lg-7 align-items-center profile_detail">

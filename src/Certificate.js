@@ -1,6 +1,4 @@
-import './css/normalize.css';
-import './css/bootstrap.min.css';
-import './css/mdb.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import React, { useState, useEffect } from 'react';
 
@@ -21,7 +19,7 @@ function Certificates() {
         <>
             {
                 sortedData.map((item, index) => (
-                    <div id="certificate" key={index}>
+                    <div key={index} id="certificate">
                         <img className="d-block w-100" src={process.env.PUBLIC_URL + '/' + item.image_dir} alt={item.title} loading="lazy" />
                         <h1 className="title_certificate">${item.title}</h1>
                         <hr />

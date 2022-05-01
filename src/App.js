@@ -1,11 +1,10 @@
-import './css/normalize.css';
-import './css/bootstrap.min.css';
-import './css/mdb.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { useNavigate, BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from "./Home"
 import Certificate from './Certificate';
+import { Row, Col, Container } from 'react-bootstrap';
 
 function Navbar() {
     // hamburger button handler
@@ -22,7 +21,7 @@ function Navbar() {
         if (event.target.id === "home_link") {
             setIsHome(true);
             setIsCertificate(false);
-            navigate(process.env.PUBLIC_URL);
+            navigate("/");
         }
         else if (event.target.id === "certificate_link") {
             setIsCertificate(true);
@@ -52,7 +51,7 @@ function Navbar() {
         async function scrollToPortfolio() {
             if (!/certificate/.test(window.location.href)) {
                 window.scroll({
-                    top: document.getElementById("works_area").getBoundingClientRect().y - 85,
+                    top: document.getElementById("profile").getBoundingClientRect().height - 85,
                     behavior: 'smooth'
                 });
             } else {
@@ -97,18 +96,18 @@ function Navbar() {
 
             {/* <!--網頁選單--> */}
             <div className={isNavOpen ? "collapse navbar-collapse show" : "collapse navbar-collapse"} id="navbarSupportedContent">
-                <div className="container">
-                    <div className="row">
+                <Container>
+                    <Row>
                         {/* <!--top icon--> */}
-                        <div className="col navbar-nav nav-icon justify-content-end">
-                            <div className="row">
-                                <img className="col" src={process.env.PUBLIC_URL + "/img/icon_where.png"} alt="location" />
-                                <p id="location" className="col text-center">TW</p>
-                            </div>
-                        </div>
+                        <Col className="navbar-nav nav-icon justify-content-end">
+                            <Row>
+                                <Col as='img' src={process.env.PUBLIC_URL + "/img/icon_where.png"} alt="location" />
+                                <Col as='p' id="location" className="text-center">TW</Col>
+                            </Row>
+                        </Col>
                         <div className="w-100"></div>
                         {/* <!--導航選單--> */}
-                        <ul className="col navbar-nav ml-auto justify-content-end">
+                        <Col as='ul' className="navbar-nav ml-auto justify-content-end">
                             <li className="nav-item">
                                 <button id="home_link" className={"nav-link" + (isHome ? ' nav_clicked' : '')} onClick={navButtonClickHandler}>首頁</button>
                             </li>
@@ -121,15 +120,16 @@ function Navbar() {
                             <li className="nav-item">
                                 <a id="contact_link" className={"nav-link" + (isContactInfo ? ' nav_clicked' : '')} href="#foot">聯絡方式</a>
                             </li>
-                        </ul>
-                    </div>
-                </div>
+                        </Col>
+                    </Row>
+                </Container>
             </div>
         </nav>
     );
 }
 
 function Footer() {
+    let [isMobile, setIsMobile] = useState(true);
 
     useEffect(() => {
         function DrawFooterLine(event) {
@@ -139,15 +139,20 @@ function Footer() {
             canvas.height = 150;
             canvas.width = 300;
 
-            if (window.innerWidth >= 990) {   // draw vertical line in computer webside
+            if (window.innerWidth >= 1200) {
                 ctx.beginPath()
                 ctx.moveTo(300, 40)
                 ctx.lineTo(300, 110)
             }
+            else if (window.innerWidth >= 990) {   // draw vertical line in computer webside
+                ctx.beginPath()
+                ctx.moveTo(230, 40)
+                ctx.lineTo(230, 110)
+            }
             else if (window.innerWidth >= 768) {   // draw vertical line in tab webside
                 ctx.beginPath()
-                ctx.moveTo(280, 40)
-                ctx.lineTo(280, 110)
+                ctx.moveTo(280, 30)
+                ctx.lineTo(280, 130)
             }
             else {   //draw horizontal line in phone website
                 canvas.height = 15;
@@ -159,47 +164,82 @@ function Footer() {
             ctx.stroke()
 
         };
+
+        function updateResize() {
+            if (window.innerWidth < 768)
+                setIsMobile(true);
+            else setIsMobile(false);
+        }
+
+        updateResize();
         DrawFooterLine();
+
+        window.addEventListener("resize", updateResize);
         window.addEventListener("resize", DrawFooterLine);
 
-        return () => window.removeEventListener("resize", DrawFooterLine);
+        return () => {
+            window.removeEventListener("resize", updateResize);
+            window.removeEventListener("resize", DrawFooterLine);
+        }
     }, []);
+
+    const mobileComponent = () => (
+        <Row as={Col} md={10} className="table_foot_section">
+            <Row as={Col} xs={6}>
+                <Col as='h2' className='w-100'>認識我</Col>
+                <Col as='ul' className='w-100'>
+                    <li><a href="https://www.facebook.com/weibin1898/" target="_blank" rel="noreferrer" className='foot_section_link'>Facebook</a></li>
+                    <li><a href="https://www.instagram.com/wei_bin/" target="_blank" rel="noreferrer" className='foot_section_link'>Instagram</a></li>
+                    <li><a href="https://github.com/HengWeiBin" target="_blank" rel="noreferrer" className='foot_section_link'>Github</a></li>
+                    <li><a href={process.env.PUBLIC_URL + "/104.pdf"} target="_blank" rel="noreferrer" className='foot_section_link'>104 履歷</a></li>
+                </Col>
+            </Row>
+            <Row as={Col} xs={6} className="align-items-center">
+                <Col as='h2' md={6} className='w-100'>聯係我</Col>
+                <Col as='ul' md={6} className='w-100'>
+                    <li><a href="mailto:wbsc1898@hotmail.com" className='foot_section_link'>wbsc1898@hotmail.com</a></li>
+                    <li id="Tel">Tel: (+886)0916180245</li>
+                </Col>
+            </Row>
+        </Row>
+    );
+
+    const desktopComponent = () => (
+        <Row as={Col} md={10} className="table_foot_section">
+            <Row as={Col} xs={5}>
+                <Col as='h2' md={5}>認識我</Col>
+                <Col as='ul' md={6}>
+                    <li><a href="https://www.facebook.com/weibin1898/" target="_blank" rel="noreferrer" className='foot_section_link'>Facebook</a></li>
+                    <li><a href="https://www.instagram.com/wei_bin/" target="_blank" rel="noreferrer" className='foot_section_link'>Instagram</a></li>
+                    <li><a href="https://github.com/HengWeiBin" target="_blank" rel="noreferrer" className='foot_section_link'>Github</a></li>
+                    <li><a href={process.env.PUBLIC_URL + "/104.pdf"} target="_blank" rel="noreferrer" className='foot_section_link'>104 履歷</a></li>
+                </Col>
+            </Row>
+            <Row as={Col} xs={5} className="align-items-center">
+                <Col as='h2' md={5}>聯係我</Col>
+                <Col as='ul' md={6}>
+                    <li><a href="mailto:wbsc1898@hotmail.com" className='foot_section_link'>wbsc1898@hotmail.com</a></li>
+                    <li id="Tel">Tel: (+886)0916180245</li>
+                </Col>
+            </Row>
+        </Row>
+    );
 
     return (
         <footer id="foot">
-            <div className="row foot-bg align-items-center">
-                <div className="col-md-3">
-                    <div className="row justify-content-center">
-                        <img id="foot_logo" src={process.env.PUBLIC_URL + "/img/nav_logo.png"} alt="foot logo"/>
-                    </div>
-                </div>
+            <Row className="foot-bg align-items-center">
+                <Col md={2}>
+                    <Row className="justify-content-center">
+                        <img id="foot_logo" src={process.env.PUBLIC_URL + "/img/nav_logo.png"} alt="foot logo" />
+                    </Row>
+                </Col>
                 <canvas id="line"></canvas>
+                {isMobile? mobileComponent() : desktopComponent()}
+            </Row>
 
-                <div className="col-md-9 table_foot_section">
-                    <div className="row">
-                        <div className="col-6 row">
-                            <h2 className="col-md-6">認識我</h2>
-                            <ul className="col-md-6">
-                                <li><a href="https://www.facebook.com/weibin1898/" target="_blank" rel="noreferrer">Facebook</a></li>
-                                <li><a href="https://www.instagram.com/wei_bin/" target="_blank" rel="noreferrer">Instagram</a></li>
-                                <li><a href="https://github.com/HengWeiBin" target="_blank" rel="noreferrer">Github</a></li>
-                                <li><a href={process.env.PUBLIC_URL + "/104.pdf"} target="_blank" rel="noreferrer">104 履歷</a></li>
-                            </ul>
-                        </div>
-                        <div className="col-6 row align-items-center">
-                            <h2 className="col-md-6">聯係我</h2>
-                            <ul className="col-md-6">
-                                <li><a href="mailto:wbsc1898@hotmail.com">wbsc1898@hotmail.com</a></li>
-                                <li id="Tel">Tel: (+886)0916180245</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <p className="col-4 col-md-3">
+            <Col as='p' xs={4} md={3}>
                 Copyright 2022. All rights reserved.
-            </p>
+            </Col>
         </footer>
     )
 }
