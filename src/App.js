@@ -244,6 +244,38 @@ function Footer() {
     )
 }
 
+function GoTopButton() {
+    let [isShow, setIsShow] = useState(false);
+
+    useEffect(() => {
+        function onScroll() {
+            if (document.getElementById('root').getBoundingClientRect().y < -500) {
+                setIsShow(true);
+            } else {
+                setIsShow(false);
+            }
+        }
+
+        function onClick() {
+            window.scroll({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        window.addEventListener("scroll", onScroll);
+        window.addEventListener("click", onClick);
+
+        return () => {
+            window.removeEventListener("scroll", onScroll);
+            window.removeEventListener("click", onClick);
+        }
+    }, []);
+    return (
+        <button id="goTopBtn" className={isShow ? '' : 'd-none'} title="Go to top"><img src={process.env.PUBLIC_URL + "/img/icon_goTop.png"}/></button>
+    );
+}
+
 export default function App() {
     return (
         <>
@@ -252,12 +284,14 @@ export default function App() {
                     <Route exact path={process.env.PUBLIC_URL} element={
                         <>
                             <Navbar />
+                            <GoTopButton />
                             <Home />
                         </>
                     }></Route>
                     <Route exact path={process.env.PUBLIC_URL + '/certificate'} element={
                         <>
                             <Navbar />
+                            <GoTopButton />
                             <Certificate />
                         </>
                     }></Route>
