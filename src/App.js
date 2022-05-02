@@ -51,7 +51,7 @@ function Navbar() {
         async function scrollToPortfolio() {
             if (!/certificate/.test(window.location.href)) {
                 window.scroll({
-                    top: document.getElementById("profile").getBoundingClientRect().height - 185,
+                    top: document.getElementById("profile").getBoundingClientRect().height - 140,
                     behavior: 'smooth'
                 });
             } else {
@@ -264,11 +264,11 @@ function GoTopButton() {
         }
 
         window.addEventListener("scroll", onScroll);
-        window.addEventListener("click", onClick);
+        document.getElementById("goTopBtn").addEventListener("click", onClick);
 
         return () => {
             window.removeEventListener("scroll", onScroll);
-            window.removeEventListener("click", onClick);
+            document.getElementById("goTopBtn").removeEventListener("click", onClick);
         }
     }, []);
     return (
