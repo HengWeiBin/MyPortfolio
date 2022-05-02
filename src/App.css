@@ -55,11 +55,11 @@ a {
 
 .title {
   font-size: 20pt;
-  margin-top: 10px;
   font-weight: bold;
   text-align: center;
-  width: 100%;
-  padding: 10px;
+  width: 98%;
+  padding: 2%;
+  margin: auto;
 }
 
 .subtitle{
